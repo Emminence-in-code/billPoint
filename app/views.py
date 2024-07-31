@@ -8,7 +8,10 @@ from rest_framework.permissions import IsAuthenticated
 
 class CreateUserview(CreateAPIView):
     serializer_class = UserSerializer
-    queryset = User.objects.all()
+    # queryset = User.objects.all()
+    def get_queryset(self):
+        return User.objects.all()
+
 
 class DeleteApiView(DestroyAPIView):
     serializer_class = UserSerializer
